@@ -5,3 +5,4 @@ CPotree.sdf
 .vs
 PotreeExtractRegion.vcxproj.user
 CPotree.vcxproj.user
+*.o

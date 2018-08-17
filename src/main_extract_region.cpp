@@ -6,10 +6,11 @@ int main(int argc, char* argv[]){
 	//std::cout.rdbuf()->pubsetbuf( 0, 0 );
 
 	Arguments args(argc, argv);
-
+#ifdef _WIN32
 	if(args.hasKey("stdout")){
 		_setmode( _fileno( stdout ),  _O_BINARY );
 	}
+#endif
 	
 	vector<string> files = args.get("");
 	string strBoxes = args.get("box", 0);

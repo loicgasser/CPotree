@@ -1,7 +1,8 @@
 #pragma once
 
-
+#ifdef _WIN32
 #include <io.h>
+#endif
 #include <fcntl.h>
 
 #include "StandardIncludes.h"
@@ -41,7 +42,7 @@ bool checkThreshold(vector<string> files, dmat4 box, int minLevel, int maxLevel,
 		workload.pop();
 	
 		intersectingNodes.push_back(node);
-		estimate += 8'000;
+		estimate += 8000;
 
 		if(estimate > threshold){
 			return false;
@@ -83,7 +84,7 @@ bool checkThreshold(vector<string> files, vector<dmat4> boxes, int minLevel, int
 		workload.pop();
 
 		intersectingNodes.push_back(node);
-		estimate += 8'000;
+		estimate += 8000;
 
 		if (estimate > threshold) {
 			return false;
@@ -133,7 +134,7 @@ FilterResult estimatePointsInBox(PotreeReader *reader, dmat4 box, int minLevel, 
 	FilterResult result;
 	result.box = box;
 	//result.points = ...;
-	result.pointsProcessed = intersectingNodes.size() * 8'000;
+	result.pointsProcessed = intersectingNodes.size() * 8000;
 	result.nodesProcessed = intersectingNodes.size();
 
 	return result;
